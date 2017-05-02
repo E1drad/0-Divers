@@ -24,7 +24,7 @@ public class ProxyExamen implements InvocationHandler {
 			//Fonctionne correctement
 			ret = Void.TYPE;
 			this.observer = (IObserver) args[0];
-		}else if(method.getName().contains("set") && this.observer != null){
+		}else if(method.getName().substring(0, 3).equals("set") && this.observer != null){
 			ret = method.invoke(this.target, args);
 			//this.observer.notify(this.target);
 			System.out.println(target.getClass().getName() + " ["+ method.getName().substring(3) + "=" + args[0] + "] is modified");
